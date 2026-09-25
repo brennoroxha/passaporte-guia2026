@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { AvisoTopo, Cabecalho, Rodape } from "@/components/SiteLayout";
+import { OFICIAL, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,25 +40,8 @@ const secoes = [
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link to="/" className="font-serif text-xl font-bold text-foreground">
-            Guia do Passaporte
-          </Link>
-          <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
-            <a href="#passo-a-passo" className="transition-colors hover:text-foreground">
-              Passo a passo
-            </a>
-            <a href="#taxas" className="transition-colors hover:text-foreground">
-              Taxas
-            </a>
-            <a href="#duvidas" className="transition-colors hover:text-foreground">
-              Dúvidas
-            </a>
-          </nav>
-        </div>
-      </header>
+      <AvisoTopo />
+      <Cabecalho />
 
       {/* Hero */}
       <section className="border-b border-border bg-secondary">
@@ -99,6 +84,9 @@ function Index() {
 
         {/* Conteúdo */}
         <article className="max-w-3xl space-y-14">
+          <p className="text-sm text-muted-foreground">
+            Por {SITE.responsavel} · Atualizado em {SITE.atualizadoEm}
+          </p>
           <section id="o-que-e">
             <h2 className="font-serif text-2xl font-bold text-foreground">
               O que é o passaporte
@@ -189,10 +177,18 @@ function Index() {
                   t: "5. Retire o passaporte",
                   d: "Acompanhe o status do pedido pelo site da Polícia Federal. Quando estiver pronto, retire o documento no posto onde fez o atendimento, apresentando um documento de identidade.",
                 },
-              ].map((passo) => (
+              ].map((passo, i) => (
                 <li key={passo.t} className="rounded-lg border border-border bg-card p-5">
                   <h3 className="font-semibold text-foreground">{passo.t}</h3>
                   <p className="mt-2 leading-relaxed text-muted-foreground">{passo.d}</p>
+                  <a
+                    href={[OFICIAL.servico, OFICIAL.gru, OFICIAL.agendamento, OFICIAL.passaporte, OFICIAL.acompanhamento][i]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-sm font-medium text-primary underline"
+                  >
+                    {["Página oficial do requerimento (gov.br)", "Taxas e GRU no site oficial", "Agendamento no site oficial", "Orientações oficiais para o atendimento", "Acompanhar pedido no site oficial"][i]}
+                  </a>
                 </li>
               ))}
             </ol>
@@ -347,6 +343,24 @@ function Index() {
             </div>
           </section>
 
+          <section id="fontes">
+            <h2 className="font-serif text-2xl font-bold text-foreground">Fontes</h2>
+            <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-foreground/90">
+              {[
+                ["Polícia Federal: Passaporte", OFICIAL.passaporte],
+                ["gov.br: Obter passaporte comum para brasileiro", OFICIAL.servico],
+                ["Polícia Federal: Taxas do passaporte", OFICIAL.gru],
+                ["Ministério das Relações Exteriores (Itamaraty)", OFICIAL.itamaraty],
+              ].map(([t, u]) => (
+                <li key={u + t}>
+                  <a href={u} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                    {t}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           {/* Aviso */}
           <section className="rounded-lg border border-border bg-muted p-6">
             <h2 className="font-serif text-lg font-bold text-foreground">
@@ -364,22 +378,7 @@ function Index() {
         </article>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-card">
-        <div className="mx-auto max-w-5xl px-6 py-10">
-          <p className="font-serif text-lg font-bold text-foreground">
-            Guia do Passaporte
-          </p>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Conteúdo informativo e independente sobre documentação de viagem. Este site
-            não possui vínculo com a Polícia Federal ou qualquer órgão do governo
-            brasileiro.
-          </p>
-          <p className="mt-6 text-xs text-muted-foreground">
-            © 2026 Guia do Passaporte. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
+      <Rodape />
     </div>
   );
 }
