@@ -156,7 +156,7 @@ function Index() {
               Passo a passo para emitir o passaporte
             </h2>
             <ol className="mt-4 space-y-6">
-              {[
+              {([
                 {
                   t: "1. Preencha o formulário online",
                   d: "Acesse o site oficial da Polícia Federal (gov.br/pf) e preencha o requerimento de passaporte com seus dados pessoais. Ao final, o sistema gera um protocolo.",
@@ -294,7 +294,7 @@ function Index() {
               Dúvidas frequentes
             </h2>
             <div className="mt-4 space-y-4">
-              {[
+              {([
                 {
                   q: "Posso viajar com o passaporte vencido?",
                   a: "Não. O passaporte precisa estar dentro da validade, e muitos países exigem validade mínima de 6 meses a partir da data de entrada. Renove antes de comprar passagens.",
@@ -346,12 +346,12 @@ function Index() {
           <section id="fontes">
             <h2 className="font-serif text-2xl font-bold text-foreground">Fontes</h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-foreground/90">
-              {[
+              {([
                 ["Polícia Federal: Passaporte", OFICIAL.passaporte],
                 ["gov.br: Obter passaporte comum para brasileiro", OFICIAL.servico],
                 ["Polícia Federal: Taxas do passaporte", OFICIAL.gru],
                 ["Ministério das Relações Exteriores (Itamaraty)", OFICIAL.itamaraty],
-              ].map(([t, u]) => (
+              ] as const).map(([t, u]) => (
                 <li key={u + t}>
                   <a href={u} target="_blank" rel="noopener noreferrer" className="text-primary underline">
                     {t}
