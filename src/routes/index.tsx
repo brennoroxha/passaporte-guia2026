@@ -156,7 +156,7 @@ function Index() {
               Passo a passo para emitir o passaporte
             </h2>
             <ol className="mt-4 space-y-6">
-              {([
+              {[
                 {
                   t: "1. Preencha o formulário online",
                   d: "Acesse o site oficial da Polícia Federal (gov.br/pf) e preencha o requerimento de passaporte com seus dados pessoais. Ao final, o sistema gera um protocolo.",
@@ -294,7 +294,7 @@ function Index() {
               Dúvidas frequentes
             </h2>
             <div className="mt-4 space-y-4">
-              {([
+              {[
                 {
                   q: "Posso viajar com o passaporte vencido?",
                   a: "Não. O passaporte precisa estar dentro da validade, e muitos países exigem validade mínima de 6 meses a partir da data de entrada. Renove antes de comprar passagens.",
