@@ -46,7 +46,10 @@ function Index() {
       {/* Hero */}
       <section className="border-b border-border bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary">
+          <p className="text-sm text-muted-foreground">
+            {SITE.responsavel} · CNPJ {SITE.cnpj}
+          </p>
+          <p className="mt-2 text-sm font-medium uppercase tracking-widest text-primary">
             Guia atualizado · 2026
           </p>
           <h1 className="mt-4 font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
