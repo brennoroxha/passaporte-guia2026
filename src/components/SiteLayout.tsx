@@ -47,6 +47,8 @@ export function Rodape() {
       <div className="mx-auto max-w-5xl px-6 py-10">
         <p className="font-serif text-lg font-bold text-foreground">{SITE.nome}</p>
         <p className="mt-1 text-sm text-muted-foreground">Responsável: {SITE.responsavel}</p>
+        <p className="mt-0.5 text-sm text-muted-foreground">CNPJ: {SITE.cnpj}</p>
+        <p className="mt-0.5 text-sm text-muted-foreground">{SITE.endereco}</p>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           Conteúdo informativo e independente sobre documentação de viagem. Este site não possui
           vínculo com a Polícia Federal ou qualquer órgão do governo brasileiro.

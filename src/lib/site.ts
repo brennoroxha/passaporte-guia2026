@@ -1,9 +1,10 @@
 // Dados do responsável. Substitua os valores entre colchetes.
 export const SITE = {
   nome: "Guia do Passaporte",
-  responsavel: "[SEU NOME OU EMPRESA]",
+  responsavel: "Fabio Junior da Silva",
   email: "[SEU E-MAIL]",
-  cnpj: "[SEU CNPJ]",
+  cnpj: "34.362.346/0001-51",
+  endereco: "Avenida Maringá, 3165, Rolim de Moura - RO, CEP 76940-000",
   atualizadoEm: "25 de setembro de 2026",
 };
 
